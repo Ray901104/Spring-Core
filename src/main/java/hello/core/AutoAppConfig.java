@@ -6,7 +6,9 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
-        excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class) // scan 대상에서 제외
+        basePackages = "hello.core",
+        basePackageClasses = AutoAppConfig.class,
+        excludeFilters= @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class) // scan 대상에서 제외
 )
 public class AutoAppConfig {
 

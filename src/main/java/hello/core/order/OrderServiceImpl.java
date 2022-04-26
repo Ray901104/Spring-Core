@@ -9,8 +9,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService {
 
+    // 생성자 주입을 사용하면 필드에 final 키워드 사용 가능 > 생성자에서 혹시라도 값이
+    // 설정되지 않는 오류를 컴파일 시점에 막아준다. > 컴파일 오류가 가장 빠르고, 해결하기 좋은 오류다!
     private final MemberRepository memberRepository;
+//    private MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
+//    private DiscountPolicy discountPolicy;
+
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+//
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        this.discountPolicy = discountPolicy;
+//    }
+
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
 //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();

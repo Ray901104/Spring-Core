@@ -3,10 +3,13 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+// final이 붙은 것을 매개변수로 갖는 생성자를 만들어 준다.
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     // 생성자 주입을 사용하면 필드에 final 키워드 사용 가능 > 생성자에서 혹시라도 값이
@@ -48,12 +51,17 @@ public class OrderServiceImpl implements OrderService {
 //    @Autowired
 //    private DiscountPolicy discountPolicy;
 
-    //생성자 주입
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
+
+//    생성자 주입
+//    @Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(long memberId, String itemName, int itemPrice) {

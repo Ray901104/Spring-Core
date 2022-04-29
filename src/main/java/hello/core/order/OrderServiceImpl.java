@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 // final이 붙은 것을 매개변수로 갖는 생성자를 만들어 준다.
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     // 생성자 주입을 사용하면 필드에 final 키워드 사용 가능 > 생성자에서 혹시라도 값이
@@ -18,6 +18,13 @@ public class OrderServiceImpl implements OrderService {
 //    private MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 //    private DiscountPolicy discountPolicy;
+
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
 
 //    @Autowired
 //    public void setMemberRepository(MemberRepository memberRepository) {
